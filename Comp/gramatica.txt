@@ -1,0 +1,93 @@
+inicio : sentencia
+sentencia : sentencia sentencia
+
+sentencia : entrada FIN_LINEA
+sentencia : op_print FIN_LINEA
+sentencia : ciclo
+sentencia : condicional
+sentencia : declarar
+
+sentencia : asignaEntero
+sentencia : asignaFlotante
+sentencia : asignaCaracter
+sentencia : asignaCadena
+declarar : ENTERO lista_id FIN_LINEA
+declarar : ENTERO lista_id IGUAL expresionEntero FIN_LINEA
+declarar : DECIMAL lista_id FIN_LINEA
+declarar : DECIMAL lista_id IGUAL expresionFlotante FIN_LINEA
+declarar : CARACTER lista_id FIN_LINEA
+declarar : CARACTER lista_id IGUAL CARACTER FIN_LINEA
+declarar : CADENA lista_id FIN_LINEA
+declarar : CADENA lista_id IGUAL CADENA FIN_LINEA
+
+lista_id : IDENTIFICADOR
+lista_id : lista_id COMA lista_id
+asignacion : IDENTIFICADOR IGUAL factor FIN_LINEA
+asignaEntero : IDENTIFICADOR IGUAL ENTERO FIN_LINEA
+asignaFlotante : IDENTIFICADOR IGUAL FLOTANTE FIN_LINEA
+asignaCaracter : IDENTIFICADOR IGUAL CARACTER FIN_LINEA
+asignaCadena : IDENTIFICADOR IGUAL CADENA FIN_LINEA
+
+expresionEntero : expresionEntero SUMA terminoEntero
+expresionEntero : expresionEntero RESTA terminoEntero
+expresionFlotante : expresionFlotante SUMA terminoFlotante
+expresionFlotante : expresionFlotante RESTA terminoFlotante
+expresionEntero : terminoEntero
+expresionFlotante : terminoFlotante
+*expresionCaracter : terminoCaracter
+
+terminoEntero : terminoEntero MULTIPLICACION factorEntero
+terminoEntero : terminoEntero DIVISION factorEntero
+terminoFlotante : terminoFlotante MULTIPLICACION factorFlotante
+terminoFlotante : terminoFlotante DIVISION factorFlotante
+
+terminoEntero : factorEntero
+terminoFlotante : factorFlotante
+*terminoCaracter : factorCaracter
+
+
+factorEntero : IDENTIFICADOR
+factorFlotante : IDENTIFICADOR
+*factorCaracter : IDENTIFICADOR
+factorEntero : NUMERO
+factorEntero : PARENTESIS_A expresionEntero PARENTESIS_C
+factorFlotante : PARENTESIS_A expresionFlotante PARENTESIS_C
+factorFlotante : FLOTANTE
+*factorCaracter : PARENTESIS_A expresionCaracter PARENTESIS_C
+*factorCaracter : CARACTER
+
+entrada : ENTRADA PARENTESIS_A lista_id PARENTESIS_C FIN_LINEA
+op_print : MUESTRA PARENTESIS_A lista_id PARENTESIS_C FIN_LINEA
+op_print : MUESTRA PARENTESIS_A CADENA PARENTESIS_C FIN_LINEA
+ciclo : PARA factor RANGO PARENTESIS_A NUMERO PARENTESIS_C bloque
+bloque : LLAVE_A sentencia LLAVE_C
+condicional : SI PARENTESIS_A comparacion PARENTESIS_C bloque
+condicional : SI PARENTESIS_A comparacion PARENTESIS_C bloque SI_NO bloque
+
+condicionalEntero : SI PARENTESIS_A comparacionEntero PARENTESIS_C bloque
+condicionalEntero : SI PARENTESIS_A comparacionEntero PARENTESIS_C bloque SI_NO bloque
+condicionalFlotante : SI PARENTESIS_A comparacionFlotante PARENTESIS_C bloque
+condicionalFlotante : SI PARENTESIS_A comparacionFlotante PARENTESIS_C bloque SI_NO bloque
+*condicionalCaracter : SI PARENTESIS_A comparacionCaracter PARENTESIS_C bloque
+*condicionalCaracter : SI PARENTESIS_A comparacionCaracter PARENTESIS_C bloque SI_NO bloque
+
+comparacionEntero : factorEntero IGUAL_IGUAL factorEntero
+comparacionEntero : factorEntero DIFERENTE factorEntero
+comparacionEntero : factorEntero MAYOR factorEntero
+comparacionEntero : factorEntero MENOR factorEntero
+comparacionEntero : factorEntero MAYOR_IGUAL factorEntero
+comparacionEntero : factorEntero MENOR_IGUAL factorEntero
+
+comparacionFlotante : factorFlotante IGUAL_IGUAL factorFlotante
+comparacionFlotante : factorFlotante DIFERENTE factorFlotante
+comparacionFlotante : factorFlotante MAYOR factorFlotante
+comparacionFlotante : factorFlotante MENOR factorFlotante
+comparacionFlotante : factorFlotante MAYOR_IGUAL factorFlotante
+comparacionFlotante : factorFlotante MENOR_IGUAL factorFlotante
+
+*comparacionCaracter : factorCaracter IGUAL_IGUAL factorCaracter
+*comparacionCaracter : factorCaracter DIFERENTE factorCaracter
+*comparacionCaracter : factorCaracter MAYOR factorCaracter
+*comparacionCaracter : factorCaracter MENOR factorCaracter
+*comparacionCaracter : factorCaracter MAYOR_IGUAL factorCaracter
+*comparacionCaracter : factorCaracter MENOR_IGUAL factorCaracter

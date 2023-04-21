@@ -1,0 +1,9 @@
+entero a;
+entero e;
+cadena b;
+decimal c;
+#a = 5 + 6;
+#e = a;
+cadena b = "Hola profa, páseme plis";
+#c = 2.5;
+#a = c * b;

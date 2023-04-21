@@ -1,0 +1,32 @@
+#DECLARACIONES
+
+
+entero b;
+decimal c;
+cadena e;
+entero f;
+decimal x;
+decimal b;
+
+entero f=a+e;
+
+entero f=b+a;
+
+entero f=a/b;
+si (a>b){
+    muestra("a mayor que b");
+}si_no{
+    muestra("b mayor que a");
+}
+
+para f rango (3){
+    entero a=a+1;
+}
+
+#FIN DE DECLARACIONES
+
+#IMPRESIONES
+
+muestra("Hola profa Everth");
+
+#FIN IMPRESIONES

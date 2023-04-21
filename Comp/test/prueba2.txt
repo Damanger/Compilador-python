@@ -1,0 +1,3 @@
+entero a=10;
+entero b=12;
+entero c=a+b;

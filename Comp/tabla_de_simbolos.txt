@@ -1,0 +1,1 @@
+[['b', 'ENTERO', 'IDENTIFICADOR', [4, 9, 13, 15, 16]], ['c', 'DECIMAL', 'IDENTIFICADOR', [5]], ['e', 'CADENA', 'IDENTIFICADOR', [6, 11]], ['f', 'ENTERO', 'IDENTIFICADOR', [7, 11, 13, 15, 22]], ['x', 'DECIMAL', 'IDENTIFICADOR', [8]], ['a', 'ENTERO', 'IDENTIFICADOR', [11, 13, 15, 16, 23, 23]], ['3', 'RANGO', 'NUMERO', 22], ['1', 'ENTERO', 'NUMERO', 23]]
